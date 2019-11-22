@@ -15,17 +15,11 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //bool a = false;
-        //while (a == false)
-        //{
-        //    Tatle.transform.localPosition = new Vector3()
-        //}
         Vector3 moveDirection = transform.up;
-        Tatle.transform.position += moveDirection * speed;
-        Debug.Log(Tatle.transform.position);
-        if (Tatle.transform.position.y == 204.1)
+        if (Tatle.transform.position.y < 204.1)
         {
-            Tatle.transform.position = Tatle.transform.position;
+            Tatle.transform.position += moveDirection * speed;
+            return;
         }
     }
 }   
