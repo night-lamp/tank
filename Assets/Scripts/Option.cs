@@ -5,21 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class Option : MonoBehaviour
 {
-    private int choice = 0;
+    private static Option instance;
+    public int choice = 1;
     public Transform posOne;
     public Transform posTwo;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public static Option Instance { 
+        get => instance; 
+        set => instance = value;
     }
+    private void Awake()
+    {
+        Instance = this;
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (choice == 1 && Input.GetKey(KeyCode.Space))
-            SceneManager.LoadScene(1);
         if (Input.GetKeyDown(KeyCode.W))
         {
             choice = 1;
@@ -29,6 +32,9 @@ public class Option : MonoBehaviour
             choice = 2;
             transform.position = posTwo.position;
         }
-        
+        if (choice == 1 && Input.GetKey(KeyCode.Space))
+            SceneManager.LoadScene(1);
+        else if (choice == 2 && Input.GetKey(KeyCode.Space))
+            SceneManager.LoadScene(2);
     }
 }

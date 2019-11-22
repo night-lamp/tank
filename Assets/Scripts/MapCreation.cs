@@ -46,8 +46,11 @@ public class MapCreation : MonoBehaviour
         //初始化玩家
         GameObject player = Instantiate(item[3], new Vector3(-2, -8, 0), Quaternion.identity);
         player.GetComponent<Born>().createPlayer1 = true;
-        GameObject player2 = Instantiate(item[3], new Vector3(2, -8, 0), Quaternion.identity);
-        player2.GetComponent<Born>().createPlayer2 = true;
+        if(Option.Instance.choice == 2)
+        {
+            GameObject player2 = Instantiate(item[3], new Vector3(2, -8, 0), Quaternion.identity);
+            player2.GetComponent<Born>().createPlayer2 = true;
+        }
         //初始化敌人
         Instantiate(item[3], new Vector3(-10, 8, 0), Quaternion.identity);
         Instantiate(item[3], new Vector3(0, 8, 0), Quaternion.identity);

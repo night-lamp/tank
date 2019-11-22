@@ -39,7 +39,6 @@ public class Player2 : MonoBehaviour
         {
             defendEffectPrefab.SetActive(true);
             defendTimeVal -= Time.deltaTime;
-            Debug.Log(defendTimeVal);
             if(defendTimeVal <= 0)
             {
                 isDefended = false;

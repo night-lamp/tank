@@ -52,34 +52,37 @@ public class PlayerMananger : MonoBehaviour
             return;
         }
         if (isDead) {
-            Debug.Log("1死了");
             Recover();
         }
             
         if (isDeadPlayer2) {
-            Debug.Log("2死了");
             RecoverPlayer2();
         }
-           
         playerScoreText.text = playerScore.ToString();
         playerLiftValueText.text = lifeValue.ToString();
-        player2ScoreText.text = playerScore2.ToString();
-        player2LiftValueText.text = lifeValue2.ToString();
+        //player2ScoreText.text = playerScore2.ToString();
+        //player2LiftValueText.text = lifeValue2.ToString();
     }
-
+        
     private void Recover()
     {
-        lifeValue--;
-        GameObject go = Instantiate(born, new Vector3(-2, -8, 0), Quaternion.identity);
-        go.GetComponent<Born>().createPlayer1 = true;
-        isDead = false;
+        if (lifeValue > 0)
+        {
+            lifeValue--;
+            GameObject go = Instantiate(born, new Vector3(-2, -8, 0), Quaternion.identity);
+            go.GetComponent<Born>().createPlayer1 = true;
+            isDead = false;
+        }
     }
     private void RecoverPlayer2()
     {
-        lifeValue2--;
-        GameObject Player2go = Instantiate(born, new Vector3(2, -8, 0), Quaternion.identity);
-        Player2go.GetComponent<Born>().createPlayer2 = true;
-        isDeadPlayer2 = false;
+        if (lifeValue2 > 0)
+        {
+            lifeValue2--;
+            GameObject Player2go = Instantiate(born, new Vector3(2, -8, 0), Quaternion.identity);
+            Player2go.GetComponent<Born>().createPlayer2 = true;
+            isDeadPlayer2 = false;
+        }
     }
 
     private void ReturnToTheMainMenu()

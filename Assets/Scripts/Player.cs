@@ -52,8 +52,7 @@ public class Player : MonoBehaviour
         if (PlayerMananger.Instance.isDefeat)
             return;
         Move(); //坦克移动方法
-        //攻击的CD
-        if (timeVal >= 0.4f)
+        if (timeVal >= 0.4f)//攻击的CD
             Attack();//坦克攻击方法
         else
             timeVal += Time.fixedDeltaTime;
