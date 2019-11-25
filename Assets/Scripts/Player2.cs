@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
+    //单例
+    private static Player2 instance;
     //属性值
     public float moveSpeed = 3;
     private Vector3 bullectEulerAngles;
     private float timeVal;
     private float defendTimeVal = 3;
     private bool isDefended = true;
+    public bool isPlayer2Bullect = false;
 
     //引用
     private SpriteRenderer sr;
@@ -20,10 +23,12 @@ public class Player2 : MonoBehaviour
     public AudioSource moveAudio;
     public AudioClip[] tankAudio;
 
+    public static Player2 Instance { get => instance; set => instance = value; }
 
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -61,11 +66,12 @@ public class Player2 : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.B))
         {
             //子弹产生的角度：当前坦克的角度加上子弹应该旋转的角度。
             Instantiate(bullectPrefab, transform.position, Quaternion.Euler(transform.eulerAngles + bullectEulerAngles));
             timeVal = 0;
+            isPlayer2Bullect = true;
         }
     }
 

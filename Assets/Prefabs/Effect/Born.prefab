@@ -119,4 +119,5 @@ MonoBehaviour:
   enemyPrefabList:
   - {fileID: 6909798456165423522, guid: 6957582e167b2694fbae12c58e2a7522, type: 3}
   - {fileID: 4921737529360041268, guid: 80c699170d124b4408aaae669b79ef8a, type: 3}
-  createPlayer: 0
+  createPlayer1: 0
+  createPlayer2: 0

@@ -656,11 +656,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeValue: 2
   playerScore: 0
+  lifeValue2: 1
+  playerScore2: 0
   isDead: 0
   isDefeat: 0
+  isDeadPlayer2: 0
   born: {fileID: 6949569884293416808, guid: 8db0ca9662f8f394c8bec06f1ab16ab3, type: 3}
   playerScoreText: {fileID: 1927258342}
   playerLiftValueText: {fileID: 1853288731}
+  player2ScoreText: {fileID: 0}
+  player2LiftValueText: {fileID: 0}
   isDefeatUI: {fileID: 214974612}
 --- !u!4 &1264960861
 Transform:
@@ -937,6 +942,7 @@ MonoBehaviour:
   - {fileID: 5846998849860723008, guid: 5e2ba5449bb6d5d49b292d9045356f99, type: 3}
   - {fileID: 958031228178582389, guid: 5496edb33e05f98459874e5951f34663, type: 3}
   - {fileID: 2099516549773333437, guid: 89be120e2d31b0d43a7f553e3f4b6b0c, type: 3}
+  player: {fileID: 6949569884293416808, guid: 8db0ca9662f8f394c8bec06f1ab16ab3, type: 3}
 --- !u!4 &1988411678
 Transform:
   m_ObjectHideFlags: 0

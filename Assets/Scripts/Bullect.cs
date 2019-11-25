@@ -10,11 +10,6 @@ public class Bullect : MonoBehaviour
 
     //引用
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -40,6 +35,19 @@ public class Bullect : MonoBehaviour
             case "Enemy":
                 if (isPlayerBullect)
                 {
+                    if (Player.Instance.isPlayerBullect)
+                    {
+                        Player.Instance.isPlayerBullect = false;
+                        PlayerMananger.Instance.playerScore++;
+                    }
+                    if (Option.Instance.choice == 2)
+                    {
+                        if (Player2.Instance.isPlayer2Bullect) 
+                        {
+                            PlayerMananger.Instance.playerScore2++;
+                            Player.Instance.isPlayerBullect = false;
+                        }
+                    }
                     collider.SendMessage("Die");
                     Destroy(gameObject);
                 }

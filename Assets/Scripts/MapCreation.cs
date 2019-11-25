@@ -7,6 +7,8 @@ public class MapCreation : MonoBehaviour
     //装饰初始化地图说需物体的数组
     //0.老家 1.墙 2.障碍 3.出生效果 4.河流 5.草 6.空气墙 7.
     public GameObject[] item;
+    public GameObject player;
+    
 
     //存储已经实例化物体的位置
     private List<Vector3> itemPositionList = new List<Vector3>();
@@ -20,11 +22,11 @@ public class MapCreation : MonoBehaviour
         //实例化老家
         CreateItem(item[0], new Vector3(0, -8, 0), Quaternion.identity);
         //用墙把家围起来
-        CreateItem(item[2], new Vector3(-1, -8, 0), Quaternion.identity);
-        CreateItem(item[2], new Vector3(1, -8, 0), Quaternion.identity);
+        CreateItem(item[1], new Vector3(-1, -8, 0), Quaternion.identity);
+        CreateItem(item[1], new Vector3(1, -8, 0), Quaternion.identity);
         for (int i = -1; i < 2; i++)
         {
-            CreateItem(item[2], new Vector3(i, -7, 0), Quaternion.identity);
+            CreateItem(item[1], new Vector3(i, -7, 0), Quaternion.identity);
         }
         //实例化空气墙
         for (int i = -11; i < 12; i++) //上
@@ -44,9 +46,9 @@ public class MapCreation : MonoBehaviour
             CreateItem(item[6], new Vector3(11, i, 0), Quaternion.identity);
         }
         //初始化玩家
-        GameObject player = Instantiate(item[3], new Vector3(-2, -8, 0), Quaternion.identity);
+        player = Instantiate(item[3], new Vector3(-2, -8, 0), Quaternion.identity);
         player.GetComponent<Born>().createPlayer1 = true;
-        if(Option.Instance.choice == 2)
+        if (Option.Instance.choice == 2)
         {
             GameObject player2 = Instantiate(item[3], new Vector3(2, -8, 0), Quaternion.identity);
             player2.GetComponent<Born>().createPlayer2 = true;
@@ -89,10 +91,7 @@ public class MapCreation : MonoBehaviour
         {
             Vector3 createPositon = new Vector3(Random.Range(-9, 10), Random.Range(-7, 8),0);
             if (!HasThePosition(createPositon))
-            {
                 return createPositon;
-            }
-            
         }
     }
     
